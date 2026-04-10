@@ -15,7 +15,7 @@ import Loading from './components/Loading';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Configure axios
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
 function AppRoutes() {
