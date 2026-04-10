@@ -157,7 +157,6 @@ temp/
 *.pkl
 *.joblib
 *.model
-models/
 
 # Backup files
 *.bak
