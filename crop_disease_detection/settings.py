@@ -125,7 +125,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3002",
 ]
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True # Make easy for testing
+
+frontend_url = os.getenv('FRONTEND_URL')
+if frontend_url:
+    CORS_ALLOWED_ORIGINS.append(frontend_url)
+
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -139,10 +144,9 @@ CORS_ALLOW_HEADERS = [
 ]
 
 # Session settings
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = False
-SESSION_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_DOMAIN = 'localhost'
+SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_AGE = 86400  # 24 hours
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
